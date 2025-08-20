@@ -9,7 +9,7 @@ import Link from "next/link"
 import { signOut } from "next-auth/react"
 import Login from "./Auth/Login"
 import { Button } from "@/components/ui/button"
-import { Contact, File, LayoutDashboard, LogOut, User } from "lucide-react"
+import { File, LayoutDashboard, LogOut, User } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 
 
@@ -49,8 +49,7 @@ const Navbar = () => {
                     <div className="md:flex gap-5 hidden">
                         <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
                         <Link href={'/blog'} className="flex items-center gap-2">Blogs</Link>
-                        <Link href={'/contact'} className="flex items-center gap-2">Contact Me</Link>
-                        {session ? (<Button onClick={() => handeDownload(PDFFileURL)} variant={"default"}><File /> Download CV</Button>) : ""}
+                        {session ? (<Button onClick={() => handeDownload(PDFFileURL)} variant={"default"} className="bg-orange-600 text-white"><File /> Download CV</Button>) : ""}
                     </div>
                     <div className="flex gap-2 md:hidden">
                         <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
@@ -79,14 +78,7 @@ const Navbar = () => {
                                                 Dashboard
                                             </Link>
                                         </DropdownMenuItem>
-                                        
-                                        <DropdownMenuItem>
-                                            <Contact /> 
-                                            <Link href={"/contact"}>
-                                                Contact Me
-                                            </Link>
-                                        </DropdownMenuItem>
-                                        
+
                                         <DropdownMenuItem  onClick={() => handeDownload(PDFFileURL)}>
                                             <File />
                                             Download CV

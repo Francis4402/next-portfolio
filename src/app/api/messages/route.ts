@@ -4,6 +4,7 @@ import { messageTable } from "@/db/schema";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { and, eq } from "drizzle-orm";
+import nodemailer from "nodemailer";
 
 export async function GET() {
     try {
@@ -38,19 +39,33 @@ export async function POST(req: NextRequest) {
 
         const body = await req.json();
 
-        const existingMessages = await db.select().from(messageTable).where(and(eq(messageTable.name, body.name), eq(messageTable.email, body.email), eq(messageTable.message, body.message)));
-
-        if (existingMessages.length > 0) {
-            return NextResponse.json(
-                { error: "Post with the same title and content already exists" },
-                { status: 400 }
-            );
-        }
+             
 
         const newMessages = await db.insert(messageTable).values({
             name: body.name,
             email: body.email,
             message: body.message,
+        });
+
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            auth: {
+              user: process.env.SMTP_USER,
+              pass: process.env.SMTP_PASS,
+            },
+        });
+
+        await transporter.sendMail({
+            from: `"Contact Form" <${body.email}>`,
+            to: process.env.SMTP_FROM,
+            subject: `New Contact Message from ${body.name}`,
+            text: body.message,
+            html: `
+              <h3>New Message</h3>
+              <p><strong>Name:</strong> ${body.name}</p>
+              <p><strong>Email:</strong> ${body.email}</p>
+              <p><strong>Message:</strong> ${body.message}</p>
+            `,
         });
 
         return NextResponse.json(newMessages, { status: 201 });

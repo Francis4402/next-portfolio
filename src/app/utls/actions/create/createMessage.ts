@@ -10,7 +10,7 @@ import { revalidateTag } from "next/cache";
 export const createMesssage = async (messages: TMessage) => {
     try {
 
-        const session = await getServerSession(authOptions);
+            const session = await getServerSession(authOptions);
 
             const res = await fetch(`${process.env.BASE_URL}/messages`, {
             method: "POST",

@@ -2,12 +2,12 @@
 
 import gsap from 'gsap';
 import Image from 'next/image';
-import React, { useEffect } from 'react';
 import { styles } from '../styes/styles';
+import { useGSAP } from '@gsap/react';
 
 const Hero = () => {
 
-    useEffect(() => {
+    useGSAP(() => {
         gsap.fromTo(
             ".hero-text",
             { opacity: 0, y: -50 },

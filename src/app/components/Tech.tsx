@@ -2,15 +2,16 @@
 "use client"
 
 import gsap from "gsap"
-import { useEffect } from "react"
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Magnetic from '../MouseEffect/Framer';
 import Image from "next/image";
 import { technologies } from "../constants";
+import { useGSAP } from "@gsap/react";
 
 
 const RoundImages = ({tec, index}: any) => {
-    useEffect(() => {
+  
+    useGSAP(() => {
         gsap.registerPlugin(ScrollTrigger);
         const tl = gsap.timeline({
             scrollTrigger: {
