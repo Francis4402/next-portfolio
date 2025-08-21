@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const {data: session} = useSession();
 
-    const PDFFileURL = 'https://nextprotfolioclient.vercel.app/functionalsample.pdf'
+    const PDFFileURL = 'https://next-portfolio-delta-ebon.vercel.app/functionalsample.pdf'
 
     
     const handeDownload = (url: any) => {
