@@ -1,4 +1,3 @@
-
 import { getProject } from '@/app/utls/actions/getData/getProjects';
 import Image from 'next/image';
 import { Badge } from "@/components/ui/badge";
@@ -11,12 +10,8 @@ import { FaGithub } from 'react-icons/fa';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-
   const project = await getProject(id);
-
   const projectData = project.data[0];
-
-  console.log(projectData);
 
   return {
     title: projectData.title,
@@ -26,15 +21,12 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
-
   const project = await getProject(id);
-
   const projectData = project.data[0];
 
   const tags = typeof projectData.tags === 'string' 
     ? projectData.tags.split(',').map((tag: string) => tag.trim()) 
     : projectData.tags || [];
-
 
   return (
     <div className="min-h-screen bg-background">
@@ -83,15 +75,19 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
                 
                 <div className="p-6">
                   <h2 className="text-2xl font-bold mb-4">Project Overview</h2>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    <h1 className="text-xl font-semibold mb-4">{projectData?.title}</h1>
-                  </p>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-xl font-semibold mb-2">{projectData?.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {projectData?.description}
+                    </p>
+                  </div>
                   
                   <Separator className="my-6" />
                   
                   <h3 className="text-xl font-semibold mb-4">Project Details</h3>
                   <p className="text-muted-foreground mb-6">
-                      {projectData?.description}
+                    {projectData?.description}
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -104,7 +100,12 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
                     </div>
                     <div className="flex flex-col">
                       <span className="text-sm text-muted-foreground">Category</span>
-                      <span>{projectData.category === "web" && "Web Application"} {projectData.category === "mobile" && "Mobile Application"} {projectData.category === "design" && "Design"} {projectData.category === "fullstack" && "Full Stack"}</span>
+                      <span>
+                        {projectData.category === "web" && "Web Application"} 
+                        {projectData.category === "mobile" && "Mobile Application"} 
+                        {projectData.category === "design" && "Design"} 
+                        {projectData.category === "fullstack" && "Full Stack"}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -150,7 +151,7 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-4">Project Details</h3>
-                <dl className="space-y-3">
+                <div className="space-y-3">
                   <div>
                     <dt className="text-sm text-muted-foreground">Client</dt>
                     <dd>Acme Corporation</dd>
@@ -158,7 +159,7 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
                   <div>
                     <dt className="text-sm text-muted-foreground">Status</dt>
                     <dd>
-                      <Badge variant="outline" className="bg-green-100 text-green-800">
+                      <Badge variant="outline" className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                         Completed
                       </Badge>
                     </dd>
@@ -167,7 +168,7 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
                     <dt className="text-sm text-muted-foreground">Role</dt>
                     <dd>Full Stack Developer</dd>
                   </div>
-                </dl>
+                </div>
               </CardContent>
             </Card>
           </div>

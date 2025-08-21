@@ -12,7 +12,6 @@ import { toast } from "sonner";
 
 const ProjectCard = ({project}: {project: TProject}) => {
   
-
   const {formState: {isSubmitting}} = useForm();
 
   const router = useRouter();
@@ -23,7 +22,6 @@ const ProjectCard = ({project}: {project: TProject}) => {
 
       if (res?.success) {
         toast.success("Project Deleted Successfully");
-        router.push("/dashboard/projects");
       } else {
         toast.error(res?.error);
       }

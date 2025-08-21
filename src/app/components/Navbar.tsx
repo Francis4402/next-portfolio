@@ -61,7 +61,7 @@ const Navbar = () => {
                                 <DropdownMenu>
                                     <DropdownMenuTrigger>
                                         <Avatar>
-                                            <AvatarImage src={session?.user?.image || ""} alt="i" width={50} height={50} />
+                                            <AvatarImage src={session?.user.image || ""} alt="i" width={50} height={50} />
                                             <AvatarFallback>CN</AvatarFallback>
                                         </Avatar>
                                     </DropdownMenuTrigger>
