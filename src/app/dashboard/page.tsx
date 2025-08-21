@@ -4,6 +4,7 @@ import { getBlogs } from "../utls/actions/getData/getBlogs";
 import { getProjects } from "../utls/actions/getData/getProjects";
 import { getMessages } from "../utls/actions/getData/getMessages";
 import { Metadata } from "next";
+import MessagesTime from "./utils/MessagesTime";
 
 
 export const metadata: Metadata = {
@@ -63,7 +64,7 @@ const Dashboard = async () => {
         <div className="bg-gray-900 p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold text-gray-500 mb-4">Recent Messages</h2>
         <div className="space-y-4">
-            {/* <MessagesTime messages={messages} /> */}
+            <MessagesTime messages={messages} />
           </div>
         </div>
           

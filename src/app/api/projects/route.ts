@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
 
         const body = await req.json();
 
-        const existingProject = await db.select().from(projectTable).where(and(eq(projectTable.title, body.title), eq(projectTable.description, body.description), eq(projectTable.links, body.links)));
+        const existingProject = await db.select().from(projectTable).where(and(eq(projectTable.title, body.title), eq(projectTable.description, body.description), eq(projectTable.livelink, body.livelink), eq(projectTable.githublink, body.githublink)));
 
         if (existingProject.length > 0) {
             return NextResponse.json(
@@ -52,7 +52,9 @@ export async function POST(req: NextRequest) {
         const newProjects = await db.insert(projectTable).values({
             title: body.title,
             description: body.description,
-            links: body.links,
+            category: body.category,
+            livelink: body.livelink,
+            githublink: body.githublink,
             projectImages: body.projectImages,
             tags: body.tags
         });

@@ -1,13 +1,13 @@
 export const publicRoutes = [
-    "/forgot-password", "/reset-password", "/", "/projects", "/blogs", "/contact",
+    "/", "/projects", "/blogs", "/contact",
 ];
 
 export const adminRoutes = [
-    "/dashboard", "/", "/:id", "/projects/:id", "/blog/:id"
+    "/dashboard", "/", "/:id", "/projects/:id", "/blogs/:id", "/dashboard/projects", "/dashboard/blogs", "/dashboard/messages"
 ];
 
 export const userRoutes = [
-    "/", "/dashboard", "/:id", "/projects/:id", "/blog/:id", "/dashboard/projects", "/dashboard/blogs", "/dashboard/messages"
+    "/", "/:id", "/projects/:id", "/blogs/:id",
 ];
 
 

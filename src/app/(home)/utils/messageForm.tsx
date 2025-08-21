@@ -31,6 +31,7 @@ const MessageForm = () => {
 
     const onSubmit: SubmitHandler<MessageSchemaV> = async (data) => {
         try {
+            
             const res = await createMesssage(data);
 
             if (res) {

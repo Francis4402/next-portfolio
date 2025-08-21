@@ -10,11 +10,12 @@ import { Button } from "@/components/ui/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { projectSchemav, projectsSchema } from "../../Validation/Validations";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Form, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { UploadButton } from "@/utils/uploadthing";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 
 const ProjectModel = () => {
@@ -27,7 +28,9 @@ const ProjectModel = () => {
     defaultValues: {
       title: "",
       description: "",
-      links: "",
+      category: "",
+      livelink: "",
+      githublink: "",
       tags: "",
       projectImages: ""
     }
@@ -96,8 +99,7 @@ const ProjectModel = () => {
                       }}
                       appearance={{
                         button:
-                          "ut-ready:bg-primary ut-uploading:cursor-not-allowed bg-primary/90 text-white",
-                        allowedContent: "hidden",
+                          "ut-ready:bg-blue-200 ut-uploading:cursor-not-allowed bg-blue-500 text-white border-primary p-4",
                       }}
                     />
                   </div>
@@ -110,9 +112,39 @@ const ProjectModel = () => {
                   </FormItem>
                 )} />
 
-                <FormField control={form.control} name="links" render={({field}) => (
+                <FormField control={form.control} name="category" render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Category</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value || ''}>
+                      <FormControl>
+                        <SelectTrigger className="h-10 w-full">
+                          <SelectValue placeholder="Select category" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectItem value="web">Web Development</SelectItem>
+                          <SelectItem value="mobile">Mobile Development</SelectItem>
+                          <SelectItem value="design">Design</SelectItem>
+                          <SelectItem value="fullstack">Full Stack</SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="livelink" render={({field}) => (
                   <FormItem>
                     <FormLabel>Project Link</FormLabel>
+                    <Input type="text" {...field} value={field.value || ''} placeholder="Project Link" />
+                    <FormMessage />
+                  </FormItem>
+                )} />
+
+                <FormField control={form.control} name="githublink" render={({field}) => (
+                  <FormItem>
+                    <FormLabel>Github Link</FormLabel>
                     <Input type="text" {...field} value={field.value || ''} placeholder="Project Link" />
                     <FormMessage />
                   </FormItem>

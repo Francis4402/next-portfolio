@@ -1,8 +1,30 @@
-import { css, figma, git, html, javascript, laravel, mongodb, nextjs, nodejs, reactjs, redux, tailwind, typescript } from "../assets";
+import { css, drizzleorm, figma, flutter, git, html, javascript, laravel, mongodb, nextjs, nodejs, postgresql, reactjs, redux, tailwind, typescript, zustand } from "../assets";
 
 
 
 const experiences = [
+    {
+        title: "React.js",
+        icon: reactjs,
+        iconBg: "#383E56",
+        points: [
+            "Developing and maintaining web applications using React.js",
+            "React Routing, State Hooks, useEffects, Data Fetching, Authentication, Private Route.",
+            "Implementing responsive design and ensuring cross-browser compatibility.",
+            "Participating in code reviews and providing constructive feedback to other developers.",
+        ],
+    },
+    {
+      title: "Mongodb",
+      icon: mongodb,
+      iconBg: "#383E56",
+      points: [
+          "Store Data files with React Node js in MongoDB",
+          "Managing Data",
+          "Handling Clusters",
+          "Connect with nodejs backend"
+      ],
+    },
     {
         title: "Laravel",
         icon: laravel,
@@ -16,20 +38,19 @@ const experiences = [
         ],
     },
     {
-        title: "React.js",
-        icon: reactjs,
-        iconBg: "#383E56",
-        points: [
-            "Developing and maintaining web applications using React.js",
-            "React Routing, State Hooks, useEffects, Data Fetching, Authentication, Private Route.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+      title: "Flutter",
+      icon: flutter,
+      iconBg: "#383E56",
+      points: [
+        "Developing and maintaining mobile applications using Flutter.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
     },
     {
         title: "Next js",
         icon: nextjs,
-        iconBg: "#E6DEDD",
+        iconBg: "#383E56",
         points: [
           "Developing and maintaining web applications using Next.js",
           "Next Routing, Hooks, useEffects, Data Fetching, Next-Auth, Private Route.",
@@ -39,20 +60,31 @@ const experiences = [
         ],
     },
     {
-        title: "Mongodb",
-        icon: mongodb,
-        iconBg: "#383E56",
-        points: [
-            "Store Data files with React Node js in MongoDB",
-            "Managing Data",
-            "Handling Clusters",
-            "Connect with nodejs backend"
-        ],
+      title: "Drizzle ORM",
+      icon: drizzleorm,
+      iconBg: "#E6DEDD",
+      points: [
+        "Developing and maintaining web applications using Drizzle ORM",
+        "React Routing, State Hooks, useEffects, Data Fetching, Authentication, Private Route.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
     },
     {
-        title: "Backend",
+      title: "PostgreSQL",
+      icon: postgresql,
+      iconBg: "#E6DEDD",
+      points: [
+        "Developing and maintaining web applications using PostgreSQL",
+        "React Routing, State Hooks, useEffects, Data Fetching, Authentication, Private Route.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
+    },
+    {
+        title: "Node Js",
         icon: nodejs,
-        iconBg: "#E6DEDD",
+        iconBg: "#383E56",
         points: [
             "Creating Api Create Read Update Delete",
             "Connect with Database",
@@ -89,8 +121,28 @@ const technologies = [
       icon: typescript,
     },
     {
+      name: "Flutter",
+      icon: flutter,
+    },
+    {
       name: "React JS",
       icon: reactjs,
+    },
+    {
+      name: "Next",
+      icon: nextjs,
+    },
+    {
+      name: "PostgreSQL",
+      icon: postgresql,
+    },
+    {
+      name: "Drizzle ORM",
+      icon: drizzleorm,
+    },
+    {
+      name: "Zustand",
+      icon: zustand,
     },
     {
       name: "Redux Toolkit",
@@ -112,14 +164,7 @@ const technologies = [
       name: "git",
       icon: git,
     },
-    {
-      name: "figma",
-      icon: figma,
-    },
-    {
-      name: "Next",
-      icon: nextjs,
-    }
+
   ];
 
   const projects = [

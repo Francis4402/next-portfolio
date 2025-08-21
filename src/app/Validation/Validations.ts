@@ -7,8 +7,14 @@ export const projectsSchema = z.object({
     tags: z.string().min(3, {
         message: "Tags must be at least 3 characters",
     }),
-    links: z.string({
-        message: "Links must be a valid URL",
+    category: z.string({
+        message: "Category must be a valid category",
+    }),
+    livelink: z.string({    
+        message: "Live Link must be a valid URL",
+    }),
+    githublink: z.string({    
+        message: "Github Link must be a valid URL",
     }),
     description: z.string().min(8, {
         message: "Description must be at least 8 characters",

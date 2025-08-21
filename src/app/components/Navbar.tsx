@@ -48,7 +48,7 @@ const Navbar = () => {
                 <div className='flex justify-center items-center text-center md:gap-10 gap-4 capitalize list-none'>
                     <div className="md:flex gap-5 hidden">
                         <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
-                        <Link href={'/blog'} className="flex items-center gap-2">Blogs</Link>
+                        <Link href={'/blogs'} className="flex items-center gap-2">Blogs</Link>
                         {session ? (<Button onClick={() => handeDownload(PDFFileURL)} variant={"default"} className="bg-orange-600 text-white"><File /> Download CV</Button>) : ""}
                     </div>
                     <div className="flex gap-2 md:hidden">
@@ -73,10 +73,16 @@ const Navbar = () => {
                                         </DropdownMenuItem>
                                         <Separator/>
                                         <DropdownMenuItem>
-                                            <LayoutDashboard />
-                                            <Link href={"/dashboard"}>
-                                                Dashboard
-                                            </Link>
+                                            {
+                                                session?.user?.role === "Admin" && (
+                                                    <>
+                                                        <LayoutDashboard />
+                                                        <Link href={"/dashboard"}>
+                                                            Dashboard
+                                                        </Link>
+                                                    </>
+                                                )
+                                            }
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem  onClick={() => handeDownload(PDFFileURL)}>

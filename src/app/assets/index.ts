@@ -15,7 +15,10 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
-
+import drizzleorm from "./tech/drizzleorm.png";
+import postgresql from "./tech/postgresql.png";
+import zustand from "./tech/zustand.png";
+import flutter from "./tech/flutter.png";
 
 export {
     laravel,
@@ -23,6 +26,10 @@ export {
     nextjs,
     mongodb,
     nodejs,
+    drizzleorm,
+    postgresql,
+    zustand,
+    flutter,
     git,
     html,
     css,

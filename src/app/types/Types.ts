@@ -1,7 +1,9 @@
 export type TProject = {
     id?: string;
     title: string;
-    links: string;
+    livelink: string;
+    githublink: string;
+    category: string;
     description: string;
     projectImages: string;
     tags: string;
@@ -28,6 +30,8 @@ export type TMessage = {
     name: string;
     email: string;
     message: string;
+    createdAt?: string;
+    updatedAt?: string
 }
 
 export type MessagesDataResponse = {

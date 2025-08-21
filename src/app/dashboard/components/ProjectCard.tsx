@@ -40,7 +40,6 @@ const ProjectCard = ({project}: {project: TProject}) => {
     router.push(`/projects/${project.id}`);
   }
   
-
   return (
     <div className="bg-gray-900 shadow-md rounded-2xl overflow-hidden transition-all hover:shadow-lg flex flex-col">
       <div className="relative w-full aspect-[16/9] cursor-pointer" onClick={handleProjectDetials}>
@@ -57,7 +56,7 @@ const ProjectCard = ({project}: {project: TProject}) => {
         <div className="flex justify-between items-center">
           <h3 className="text-xl font-bold text-gray-200">{project.title}</h3>
           <Button
-            onClick={() => window.open(project.links, "_blank")}
+            onClick={() => window.open(project.livelink, "_blank")}
             variant={"outline"} size={"sm"}
           >
             Link

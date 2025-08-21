@@ -7,7 +7,7 @@ const BlogCardhome = ({ blog }: { blog: TBlog }) => {
   const router = useRouter();
 
   const handleBlogDetails = () => {
-    router.push(`/blog/${blog.id}`);
+    router.push(`/blogs/${blog.id}`);
   };
 
   return (

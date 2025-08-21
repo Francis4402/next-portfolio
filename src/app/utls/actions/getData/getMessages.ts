@@ -1,13 +1,19 @@
 "use server"
 
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../authOptions";
+
 
 
 export const getMessages = async () => {
     
+    const session = await getServerSession(authOptions);
+
     const res = await fetch(`${process.env.BASE_URL}/messages`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${session?.accessToken}`,
         },
         next: {
             tags: ['messages']

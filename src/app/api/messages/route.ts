@@ -3,17 +3,32 @@ import { db } from "@/db/db";
 import { messageTable } from "@/db/schema";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
-import { and, eq } from "drizzle-orm";
 import nodemailer from "nodemailer";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
     try {
-        const projects = await db.select().from(messageTable)
+        const authHeader = req.headers.get("authorization");
 
-        return NextResponse.json(projects);
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
+        const token = authHeader.split(" ")[1];
+
+        let decoded;
+
+        try {
+            decoded = jwt.verify(token, process.env.AUTH_SECRET as string);
+        } catch {
+            return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+        }
+
+        const messages = await db.select().from(messageTable)
+
+        return NextResponse.json(messages);
     } catch (error) {
         console.log(error);
-        return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to fetch messages' }, { status: 500 });
     }
 }
 

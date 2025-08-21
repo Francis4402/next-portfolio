@@ -89,8 +89,7 @@ const BlogModel = () => {
                       }}
                       appearance={{
                         button:
-                          "ut-ready:bg-primary ut-uploading:cursor-not-allowed bg-primary/90 text-white",
-                        allowedContent: "hidden",
+                          "ut-ready:bg-blue-200 ut-uploading:cursor-not-allowed bg-blue-500 text-white border-primary p-4",
                       }}
                     />
                   </div>

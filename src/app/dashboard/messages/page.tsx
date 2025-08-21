@@ -18,7 +18,7 @@ const Messages = async () => {
 
   const formatTime = (isoString: string) => {
     const date = new Date(isoString);
-    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Format as "HH:MM"
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
 
@@ -34,15 +34,15 @@ const Messages = async () => {
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {
           messages?.length > 0 ? messages?.map((msg: TMessage) => (
-            <div key={msg.name} className="bg-gray-900 p-5 rounded-xl shadow-lg border cursor-pointer">
+            <div key={msg.id} className="bg-gray-900 p-5 rounded-xl shadow-lg border cursor-pointer">
   
               <p className="text-sm text-gray-200 font-semibold mb-2">{msg.email}</p>
   
   
-              <p className="text-gray-300 text-lg">{msg.message}</p>
+              <p className="text-gray-300 text-2xl">{msg.message}</p>
   
               <div className="mt-3 flex gap-5 items-center justify-end">
-                <span className="text-sm text-gray-400">{formatTime(msg.createdAt)}</span>
+                <span className="text-sm text-gray-400">{formatTime(msg.createdAt!)}</span>
                 
               </div>
             </div>

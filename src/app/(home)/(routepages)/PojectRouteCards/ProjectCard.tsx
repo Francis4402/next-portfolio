@@ -1,44 +1,97 @@
 "use client"
 
 import { TProject } from "@/app/types/Types"
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image"
 import { useRouter } from "next/navigation";
-
+import { ExternalLink, ArrowRight } from 'lucide-react';
+import { FaGithub } from "react-icons/fa";
 
 const ProjectCardhome = ({project}: {project: TProject}) => {
   
   const router = useRouter();
 
-  const handleProjectDetials = () => {
+  const handleProjectDetails = () => {
     router.push(`/projects/${project.id}`);
   }
-  
+
+  // Parse tags if they're stored as a string
+  const tags = typeof project.tags === 'string' 
+    ? project.tags.split(',').map(tag => tag.trim()) 
+    : project.tags || [];
 
   return (
-    <div className="bg-gray-900 shadow-md rounded-2xl overflow-hidden transition-all hover:shadow-lg">
-
-      <div className="relative w-full aspect-[16/9] cursor-pointer" onClick={handleProjectDetials}>
+    <Card className="group overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/20">
+      <div className="overflow-hidden">
         <Image
           width={500}
           height={300}
           src={project.projectImages}
-          alt="Blog Cover"
-          className="w-full h-full object-cover"
+          alt={project.title}
+          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-
-
-      <div className="p-5">
-        <div className="flex justify-between">
-          <h3 className="text-xl font-bold">{project.title}</h3>
-          <button onClick={() => window.open(project.links, "_blank")} className="text-sm bg-blue-400 px-4 rounded-lg text-white hover: scale-105 hover:bg-blue-600 duration-150">Link</button>
-        </div>
-        <p className="mt-2 text-gray-400 text-sm">{project.description}</p>
-
-        <p className="mt-2 text-gray-500 text-sm text-end">{project.tags}</p>
+      
+      <CardHeader>
+        <CardTitle className="text-4xl">{project.title}</CardTitle>
+      </CardHeader>
+      
+      <CardContent>
+        <p className="text-muted-foreground truncate text-sm line-clamp-3 mb-4">
+          {project.description}
+        </p>
         
-      </div>
-    </div>
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tags.slice(0, 3).map((tag, index) => (
+              <Badge key={index} variant="secondary" className="text-xs">
+                {tag}
+              </Badge>
+            ))}
+            {tags.length > 3 && (
+              <Badge variant="outline" className="text-xs">
+                +{tags.length - 3} more
+              </Badge>
+            )}
+          </div>
+        )}
+      </CardContent>
+      
+      <CardFooter className="flex justify-between pt-0">
+        <div className="flex gap-2">
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={() => window.open(project.livelink, "_blank")}
+            className="flex items-center gap-1"
+          >
+            <ExternalLink className="h-3 w-3" />
+            Live
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={() => window.open(project.githublink, "_blank")}
+            className="flex items-center gap-1"
+          >
+            <FaGithub className="h-3 w-3" />
+            Code
+          </Button>
+        </div>
+        
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={handleProjectDetails}
+          className="flex items-center gap-1 text-muted-foreground hover:text-foreground"
+        >
+          Details
+          <ArrowRight className="h-3 w-3" />
+        </Button>
+      </CardFooter>
+    </Card>
   )
 }
 

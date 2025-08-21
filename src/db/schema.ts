@@ -1,4 +1,5 @@
 import { pgTable, pgEnum, timestamp, varchar, uuid } from "drizzle-orm/pg-core";
+import { sql } from 'drizzle-orm';
 
 export const userRoleEnum = pgEnum('user_role', ['User', 'Admin']);
 
@@ -16,7 +17,9 @@ export const projectTable = pgTable("projects", {
   id: uuid("id").primaryKey().defaultRandom(),
   title: varchar("title", { length: 255 }).notNull(),
   description: varchar("description", { length: 1000 }).notNull(),
-  links: varchar("links", { length: 1000 }).notNull(),
+  livelink: varchar("links", { length: 1000 }).notNull(),
+  githublink: varchar("githublink", { length: 1000 }).notNull(),
+  category: varchar("category", { length: 255 }).notNull(),
   projectImages: varchar("project_images", { length: 1000 }).notNull(),
   tags: varchar("tags", { length: 1000 }).notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
@@ -38,6 +41,6 @@ export const messageTable = pgTable("messages", {
   name: varchar("name", { length: 255 }).notNull(),
   email: varchar("email", { length: 255 }).notNull(),
   message: varchar("message", { length: 1000 }).notNull(),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  createdAt: timestamp('created_at', { withTimezone: true }).default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).default(sql`CURRENT_TIMESTAMP`),
 });

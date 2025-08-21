@@ -17,7 +17,7 @@ const BlogCardSection = ({blog, index}: {blog: TBlog, index: number}) => {
     const router = useRouter();
 
     const handleblogDetials = () => {
-        router.push(`/blog/${blog.id}`);
+        router.push(`/blogs/${blog.id}`);
     }
 
     useGSAP(() => {
