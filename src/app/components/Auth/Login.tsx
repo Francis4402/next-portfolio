@@ -29,7 +29,7 @@ const Login = () => {
                 <Button
                   variant="outline"
                   className="w-full h-12 text-base"
-                  onClick={() => signIn("github", { callbackUrl: "https://next-portfolio-delta-ebon.vercel.app" })}
+                  onClick={() => signIn("github", { callbackUrl: "http://localhost:3000" })}
                 >
                   <FaGithub className="mr-3 h-5 w-5" />
                   Continue with GitHub
@@ -38,7 +38,7 @@ const Login = () => {
                 <Button
                   variant="outline"
                   className="w-full h-12 text-base"
-                  onClick={() => signIn("google", { callbackUrl: "https://next-portfolio-delta-ebon.vercel.app" })}
+                  onClick={() => signIn("google", { callbackUrl: "http://localhost:3000" })}
                 >
                   <FaGoogle className="mr-3 h-5 w-5" />
                   Continue with Google
