@@ -52,9 +52,9 @@ export async function POST(req: NextRequest) {
         const newProjects = await db.insert(projectTable).values({
             title: body.title,
             description: body.description,
-            category: body.category,
-            livelink: body.livelink,
+            livelink: body.links,
             githublink: body.githublink,
+            category: body.category,
             projectImages: body.projectImages,
             tags: body.tags
         });

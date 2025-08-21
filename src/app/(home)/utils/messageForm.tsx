@@ -48,7 +48,7 @@ const MessageForm = () => {
     
 
   return (
-    <Card className='lg:w-4xl md:w-6xl w-full'>
+    <Card>
         <CardHeader>
             <CardTitle>
                 <p className="text-blue-400 text-sm uppercase tracking-widest text-center">

@@ -56,7 +56,9 @@ export async function PUT(req: NextRequest) {
         const updated = await db.update(projectTable).set({
             title: body.title,
             description: body.description,
-            links: body.links,
+            livelink: body.links,
+            githublink: body.githublink,
+            category: body.category,
             projectImages: body.projectImages,
             tags: body.tags
         }).where(

@@ -9,10 +9,16 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { TProject } from "@/app/types/Types";
 import { useGSAP } from "@gsap/react";
+import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 
 
 const WorkSectionProjectCard = ({project, index}: {project: TProject, index: number}) => {
+
+    const {data: session} = useSession();
 
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -72,14 +78,26 @@ const WorkSectionProjectCard = ({project, index}: {project: TProject, index: num
         <div className='mt-5'>
           <div className="flex justify-between items-center">
             <h3 className='text-white font-bold text-[24px]'>{project.title}</h3>
-            <button onClick={() => window.open(project.links, "_blank")} className="text-sm bg-blue-400 px-4 rounded-lg text-white hover: scale-105 hover:bg-blue-600 duration-150">Link</button>            
           </div>
           <p className='mt-2 text-secondary text-[14px]'>{project.description}</p>
         </div>
 
-        <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-center'>
+        <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-start'>
+          {
+              session?.user ? (
+                <div className="flex gap-2">
+                  <Button variant={"secondary"} size={"sm"} onClick={() => window.open(project.livelink, "_blank")}><ExternalLink className="h-3 w-3" />Link</Button>
+                  <Button variant={"secondary"} size={"sm"} onClick={() => window.open(project.githublink, "_blank")}><FaGithub/>Github</Button>
+                </div>
+              ) : ""
+            }
+          
+        </div>
+
+        <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-end'>
           {project.tags}
         </div>
+        
       </Tilt>
     </div>
   )
