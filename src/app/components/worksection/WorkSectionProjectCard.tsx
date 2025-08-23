@@ -79,7 +79,7 @@ const WorkSectionProjectCard = ({project, index}: {project: TProject, index: num
           <div className="flex justify-between items-center">
             <h3 className='text-white font-bold text-[24px]'>{project.title}</h3>
           </div>
-          <p className='mt-2 text-secondary text-[14px]'>{project.description}</p>
+          <p className='mt-2 text-secondary truncate text-[14px]'>{project.description}</p>
         </div>
 
         <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-start'>

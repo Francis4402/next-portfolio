@@ -45,7 +45,7 @@ const BlogCard = ({ blog }: { blog: TBlog }) => {
             <h3 className="text-xl font-bold text-gray-200 hover:text-blue-400 transition-colors">
                 {blog.title}
             </h3>
-            <p className="mt-2 text-gray-300 text-sm line-clamp-3">
+            <p className="mt-2 text-gray-300 text-sm line-clamp-3 truncate">
                 {blog.description}
             </p>
 
