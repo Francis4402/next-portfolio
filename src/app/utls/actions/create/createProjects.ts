@@ -13,6 +13,10 @@ export const createProjects = async (projects: TProject) => {
 
         const session = await getServerSession(authOptions);
 
+        if (session?.user?.role !== "Admin") {
+            throw new Error("Forbidden: Only admins can create projects");
+        }
+
         const res = await fetch(`${process.env.BASE_URL}/projects`, {
         method: "POST",
         headers: {
