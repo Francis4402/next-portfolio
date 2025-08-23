@@ -60,7 +60,7 @@ const ProjectCard = ({project}: {project: TProject}) => {
             Link
           </Button>
         </div>
-        <p className="mt-2 text-gray-300 text-sm">{project.description}</p>
+        <p className="mt-2 text-gray-300 text-sm truncate">{project.description}</p>
         <p className="mt-2 text-gray-400 text-sm text-end">{project.tags}</p>
 
         {/* Keep buttons at the bottom */}

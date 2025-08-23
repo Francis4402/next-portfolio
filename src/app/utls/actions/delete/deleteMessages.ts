@@ -11,6 +11,10 @@ const deleteMessages = async (id: string) => {
 
         const session = await getServerSession(authOptions);
 
+        if (session?.user?.role !== "Admin") {
+            throw new Error("Forbidden: Only admins can delete");
+        }
+
         const res = await fetch(`${process.env.BASE_URL}/messages/${id}`, {
         method: "DELETE",
         headers: {

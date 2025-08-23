@@ -69,7 +69,7 @@ const BlogCardSection = ({blog, index}: {blog: TBlog, index: number}) => {
 
         <div className='mt-5'>
           <h3 className='text-white font-bold text-[24px]'>{blog.title}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{blog.description}</p>
+          <p className='mt-2 text-secondary truncate text-[14px]'>{blog.description}</p>
         </div>
 
         

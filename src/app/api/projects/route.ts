@@ -1,10 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 import { db } from "@/db/db";
 import { projectTable } from "@/db/schema";
 import { and, eq } from "drizzle-orm";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
+
+interface MyJwtPayload extends JwtPayload {
+    role: string;
+    userId: string;
+}
 
 export async function GET() {
     try {
@@ -30,12 +35,22 @@ export async function POST(req: NextRequest) {
 
         const token = authHeader.split(" ")[1];
 
-        let decoded;
-
+        let decoded: MyJwtPayload;
         try {
-            decoded = jwt.verify(token, process.env.AUTH_SECRET as string);
+            decoded = jwt.verify(
+                token,
+                process.env.AUTH_SECRET as string
+            ) as MyJwtPayload;
         } catch {
             return NextResponse.json({ error: "Invalid token" }, { status: 401 });
+        }
+
+
+        if (decoded.role !== "Admin") {
+            return NextResponse.json(
+                { error: "Forbidden: Only admins can create projects" },
+                { status: 403 }
+            );
         }
 
         const body = await req.json();
@@ -52,7 +67,7 @@ export async function POST(req: NextRequest) {
         const newProjects = await db.insert(projectTable).values({
             title: body.title,
             description: body.description,
-            livelink: body.links,
+            livelink: body.livelink,
             githublink: body.githublink,
             category: body.category,
             projectImages: body.projectImages,
