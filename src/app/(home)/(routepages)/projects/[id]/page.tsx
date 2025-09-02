@@ -78,9 +78,7 @@ const ProjectDetails = async ({ params }: { params: Promise<{ id: string }> }) =
                   
                   <div className="mb-6">
                     <h3 className="text-xl font-semibold mb-2">{projectData?.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {projectData?.description}
-                    </p>
+                    
                   </div>
                   
                   <Separator className="my-6" />

@@ -47,6 +47,7 @@ const ProjectModel = () => {
 
       const res = await createProjects(data);
 
+
       if (res) {
         toast.success("Project created successfully");
         form.reset();
