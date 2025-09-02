@@ -85,7 +85,7 @@ const Navbar = () => {
                                             }
                                         </DropdownMenuItem>
 
-                                        <DropdownMenuItem  onClick={() => handeDownload(PDFFileURL)} className="md:hidden block">
+                                        <DropdownMenuItem  onClick={() => handeDownload(PDFFileURL)} className="md:hidden flex">
                                             <File />
                                             Download CV
                                         </DropdownMenuItem>
