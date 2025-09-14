@@ -1,6 +1,4 @@
-
 "use client"
-
 
 import Image from "next/image";
 import Tilt from 'react-parallax-tilt';
@@ -14,17 +12,12 @@ import { useSession } from "next-auth/react";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
-
-
 const WorkSectionProjectCard = ({project, index}: {project: TProject, index: number}) => {
-
     const {data: session} = useSession();
-
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-
     const router = useRouter();
 
-    const handleProjectDetials = () => {
+    const handleProjectDetails = () => {
         router.push(`/projects/${project.id}`);
     }
 
@@ -49,58 +42,83 @@ const WorkSectionProjectCard = ({project, index}: {project: TProject, index: num
       });
     }, []);
     
-  return (
-    <div ref={el => {cardsRef.current[index] = el}}>
-      <Tilt className='bg-tertiary p-5 shadow-lg shadow-blue-950 rounded-2xl sm:w-[360px] w-full'>
-
-        <div className='relative w-full h-[230px] cursor-pointer' onClick={handleProjectDetials}>
-          <Image
-            width={500}
-            height={500}
-            src={project.projectImages}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
-          />
-
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-            <div className='black-gradient w-10 h-10 rounded-full flex justify-center items-center'>
-              <Image
-                width={40}
-                height={40}
-                src={'/icons/web.png'}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
-              />
+    return (
+      <div ref={el => {cardsRef.current[index] = el}} className="w-full">
+        <Tilt className='bg-tertiary p-4 md:p-5 shadow-lg shadow-blue-950 rounded-2xl w-full max-w-[400px] mx-auto'>
+          {/* Image Section */}
+          <div className='relative w-full h-[180px] sm:h-[200px] md:h-[230px] cursor-pointer' onClick={handleProjectDetails}>
+            <Image
+              fill
+              src={project.projectImages}
+              alt='project_image'
+              className='w-full h-full object-cover rounded-2xl'
+            />
+  
+            <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+              <div className='black-gradient w-8 h-8 md:w-10 md:h-10 rounded-full flex justify-center items-center'>
+                <Image
+                  width={20}
+                  height={20}
+                  src={'/icons/web.png'}
+                  alt='source code'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className='mt-5'>
-          <div className="flex justify-between items-center">
-            <h3 className='text-white font-bold text-[24px]'>{project.title}</h3>
+  
+          {/* Content Section */}
+          <div className='mt-4 md:mt-5'>
+            <div className="flex justify-between items-center">
+              <h3 className='text-white font-bold text-lg sm:text-xl md:text-[24px] line-clamp-1'>{project.title}</h3>
+            </div>
+            <p className='mt-2 text-secondary text-sm md:text-[14px] line-clamp-2'>{project.description}</p>
           </div>
-          <p className='mt-2 text-secondary truncate text-[14px]'>{project.description}</p>
-        </div>
-
-        <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-start'>
-          {
-              session?.user ? (
-                <div className="flex gap-2">
-                  <Button variant={"secondary"} size={"sm"} onClick={() => window.open(project.livelink, "_blank")}><ExternalLink className="h-3 w-3" />Link</Button>
-                  <Button variant={"secondary"} size={"sm"} onClick={() => window.open(project.githublink, "_blank")}><FaGithub/>Github</Button>
-                </div>
-              ) : ""
-            }
-          
-        </div>
-
-        <div className='mt-4 flex flex-wrap gap-2 text-gray-400 justify-end'>
-          {project.tags}
-        </div>
-        
-      </Tilt>
-    </div>
-  )
+  
+          {/* Buttons Section */}
+          <div className='mt-3 md:mt-4 flex flex-wrap gap-2 justify-between items-center'>
+            {session?.user ? (
+              <div className="flex gap-2">
+                <Button 
+                  variant={"secondary"} 
+                  size={"sm"} 
+                  className="text-xs md:text-sm"
+                  onClick={() => window.open(project.livelink, "_blank")}
+                >
+                  <ExternalLink className="h-3 w-3 mr-1" />
+                  Live Demo
+                </Button>
+                <Button 
+                  variant={"secondary"} 
+                  size={"sm"}
+                  className="text-xs md:text-sm"
+                  onClick={() => window.open(project.githublink, "_blank")}
+                >
+                  <FaGithub className="mr-1" size={12}/>
+                  Github
+                </Button>
+              </div>
+            ) : null}
+            
+            {/* Tags Section */}
+            <div className="flex flex-wrap gap-1 justify-end">
+              {typeof project.tags === 'string' ? (
+                project.tags.split(',').map((tag, i) => (
+                  <span 
+                    key={i} 
+                    className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded-md"
+                  >
+                    {tag.trim()}
+                  </span>
+                ))
+              ) : (
+                <span className="text-xs text-gray-400">{project.tags}</span>
+              )}
+            </div>
+          </div>
+        </Tilt>
+      </div>
+    );
 }
 
-export default WorkSectionProjectCard
+export default WorkSectionProjectCard;

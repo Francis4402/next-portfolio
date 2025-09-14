@@ -1,3 +1,4 @@
+import { ModeToggle } from '@/components/ModelToggle';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage} from '@/components/ui/breadcrumb'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
@@ -8,7 +9,6 @@ interface SiteHeaderProps {
 
 const SiteHeader = ( { currentPage }: SiteHeaderProps ) => {
 
-  console.log(currentPage)
 
   return (
     <div>
@@ -26,6 +26,10 @@ const SiteHeader = ( { currentPage }: SiteHeaderProps ) => {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+          </div>
+
+          <div>
+            <ModeToggle />
           </div>
         </header>
     </div>
