@@ -1,10 +1,15 @@
 "use client"
 
-import LottiePi from './LottiePi'
+import dynamic from 'next/dynamic'
+
 import MessageForm from '../(home)/utils/messageForm'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { useRef } from 'react'
+
+const LottiePi = dynamic(() => import('./LottiePi'), {
+  ssr: false,
+})
 
 const Contact = () => {
   const contactRef = useRef<HTMLDivElement>(null)
@@ -28,7 +33,7 @@ const Contact = () => {
   })
 
   return (
-    <div ref={contactRef} className="opacity-0 translate-y-10">
+    <div ref={contactRef} className="opacity-0 translate-y-10 mt-10">
       <div className="mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">

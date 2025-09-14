@@ -7,12 +7,13 @@ const Blogs = async () => {
   const blogs = await getBlogs();
 
   return (
-    <div className="justify-center flex py-10 md:py-16 lg:mb-20 px-4 sm:px-6 lg:px-8">
-      <div className="container max-w-7xl">
+      <div className="container mx-auto md:px-0 px-5 mt-10">
+        <div className="flex justify-center items-center text-center">
         <BlogTextSection />
+        </div>
         
         {blogs?.length > 0 ? (
-          <div className="mt-10 md:mt-16 lg:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7 cursor-default">
+          <div className="mt-10 grid lg:grid-cols-3 md:grid-cols-2 gap-5 items-center justify-center">
             {blogs.map((blog: TBlog, index: number) => (
               <BlogCardSection key={blog.id} index={index} blog={blog} />
             ))}
@@ -23,7 +24,6 @@ const Blogs = async () => {
           </div>
         )}
       </div>
-    </div>
   );
 }
 

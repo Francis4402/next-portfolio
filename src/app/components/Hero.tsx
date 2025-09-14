@@ -34,7 +34,7 @@ const Hero = () => {
 
   return (
     <section className="relative w-full">
-        <div className={`relative inset-0 sm:top-[120px] top-10 mx-auto ${styles.paddingX} lg:flex flex-row grid items-start gap-5`}>
+        <div className={`relative inset-0 md:top-[120px] top-10 mx-auto ${styles.paddingX} lg:flex flex-row grid items-start gap-5`}>
             <div className="flex gap-8">
                 <div className='flex flex-col justify-center items-center mt-5'>
                     <div className='w-5 h-5 rounded-full bg-[#915EFF]' />
