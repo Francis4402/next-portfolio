@@ -34,7 +34,7 @@ export const ProjectsClient = ({ initialProjects }: { initialProjects: TProject[
   };
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.value)
   };
 
   const renderProjectGrid = (categoryProjects: TProject[], category: string) => {
