@@ -8,6 +8,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import ProjectUpdateModel from "../projectupdatemodel/ProjectUpdateModel";
 
 
 const ProjectCard = ({project}: {project: TProject}) => {
@@ -30,9 +31,6 @@ const ProjectCard = ({project}: {project: TProject}) => {
     }
   }
 
-  const handleUpdateId = () => {
-    router.push(`/dashboard/project-updates/${project.id}`);
-  }
 
   const handleProjectDetials = () => {
     router.push(`/projects/${project.id}`);
@@ -65,12 +63,7 @@ const ProjectCard = ({project}: {project: TProject}) => {
 
         {/* Keep buttons at the bottom */}
         <div className="flex justify-between items-center mt-auto pt-4">
-          <button
-            onClick={handleUpdateId}
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
-          >
-            Update
-          </button>
+          <ProjectUpdateModel project={project} />
 
             <Dialog>
               <DialogTrigger asChild>

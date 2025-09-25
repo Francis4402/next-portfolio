@@ -8,7 +8,6 @@ export async function generateMetadata({ params } : { params: Promise<{id: strin
 
   const {id} = await params;
   
-
   const res = await getProject(id);
 
   const project: ProjectDataResponse = await res.json();

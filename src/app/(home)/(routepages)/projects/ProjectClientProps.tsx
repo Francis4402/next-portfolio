@@ -125,7 +125,6 @@ export const ProjectsClient = ({ initialProjects }: { initialProjects: TProject[
             <TabsTrigger value="all">All</TabsTrigger>
             <TabsTrigger value="web">Web</TabsTrigger>
             <TabsTrigger value="mobile">Mobile</TabsTrigger>
-            <TabsTrigger value="design">Design</TabsTrigger>
             <TabsTrigger value="fullstack">Full Stack</TabsTrigger>
           </TabsList>
           
@@ -139,10 +138,6 @@ export const ProjectsClient = ({ initialProjects }: { initialProjects: TProject[
 
           <TabsContent value="mobile" className="mt-0">
             {renderProjectGrid(getFilteredProjectsByCategory('mobile'), 'mobile')}
-          </TabsContent>
-
-          <TabsContent value="design" className="mt-0">
-            {renderProjectGrid(getFilteredProjectsByCategory('design'), 'design')}
           </TabsContent>
 
           <TabsContent value="fullstack" className="mt-0">
