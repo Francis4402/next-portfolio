@@ -28,7 +28,7 @@
     "@uploadthing/react": "^7.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "drizzle-orm": "^0.44.4",
+    "drizzle-orm": "^0.44.5",
     "gsap": "^3.13.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.540.0",
@@ -58,11 +58,11 @@
     "@types/pg": "^8.15.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "drizzle-kit": "^0.18.1",
+    "drizzle-kit": "^0.31.4",
     "eslint": "^9",
     "eslint-config-next": "15.4.7",
     "tailwindcss": "^4",
-    "tsx": "^4.20.4",
+    "tsx": "^4.20.5",
     "tw-animate-css": "^1.3.7",
     "typescript": "^5"
   }
