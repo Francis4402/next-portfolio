@@ -7,6 +7,7 @@ import { authOptions } from "./utls/authOptions";
 import Provider from "./provider/Provider";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
+import { ToastHandler } from "./utls/ToastHandler";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Provider session={session}>
             <Toaster position="top-right" />
+            <ToastHandler/>
             {children}
           </Provider>
         </ThemeProvider>

@@ -12,4 +12,3 @@ export const userRoutes = [
 
 
 export const DEFAULT_LOGIN_REDIRECT = "/";
-

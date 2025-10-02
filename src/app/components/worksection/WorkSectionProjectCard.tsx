@@ -8,12 +8,10 @@ import gsap from "gsap";
 import { TProject } from "@/app/types/Types";
 import { useGSAP } from "@gsap/react";
 import { Button } from "@/components/ui/button";
-import { useSession } from "next-auth/react";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 const WorkSectionProjectCard = ({project, index}: {project: TProject, index: number}) => {
-    const {data: session} = useSession();
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
     const router = useRouter();
 
@@ -77,9 +75,9 @@ const WorkSectionProjectCard = ({project, index}: {project: TProject, index: num
   
           {/* Buttons Section */}
           <div className='mt-3 md:mt-4 flex flex-wrap gap-2 justify-between items-center'>
-            {session?.user ? (
-              <div className="flex gap-2">
-                <Button 
+            
+          <div className="flex gap-2">
+              <Button 
                   variant={"secondary"} 
                   size={"sm"} 
                   className="text-xs md:text-sm"
@@ -87,8 +85,9 @@ const WorkSectionProjectCard = ({project, index}: {project: TProject, index: num
                 >
                   <ExternalLink className="h-3 w-3 mr-1" />
                   Live Demo
-                </Button>
-                <Button 
+              </Button>
+
+              <Button 
                   variant={"secondary"} 
                   size={"sm"}
                   className="text-xs md:text-sm"
@@ -96,9 +95,8 @@ const WorkSectionProjectCard = ({project, index}: {project: TProject, index: num
                 >
                   <FaGithub className="mr-1" size={12}/>
                   Github
-                </Button>
-              </div>
-            ) : null}
+              </Button>
+            </div>
             
             {/* Tags Section */}
             <div className="flex flex-wrap gap-1 justify-end">

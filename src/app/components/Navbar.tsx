@@ -93,7 +93,7 @@ const Navbar = () => {
                                         
                                         {
                                             session ? (
-                                                <DropdownMenuItem onClick={() => signOut()}>
+                                                <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/?status=logged_out" })}>
                                                     <LogOut />
                                                     Logout
                                                 </DropdownMenuItem>
