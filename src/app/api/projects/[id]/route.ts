@@ -44,6 +44,7 @@ export async function PUT(req: NextRequest) {
         const token = authHeader.split(" ")[1];
 
         let decoded: MyJwtPayload;
+        
         try {
             decoded = jwt.verify(
                 token,

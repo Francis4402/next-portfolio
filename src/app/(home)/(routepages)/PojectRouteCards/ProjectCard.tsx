@@ -77,7 +77,7 @@ const ProjectCardhome = ({project}: {project: TProject}) => {
             className="flex items-center gap-1"
           >
             <FaGithub className="h-3 w-3" />
-            Code
+            Github
           </Button>
         </div>
         

@@ -3,7 +3,6 @@ import Experience from "../components/Experience";
 import Hero from "../components/Hero";
 import Tech from "../components/Tech";
 import Works from "../components/worksection/Works";
-import Blogs from "../components/blogsection/Blogs";
 import Contact from "../components/Contact";
 
 
@@ -19,7 +18,6 @@ export default async function Home() {
         <Experience/>
         <Tech/>
         <Works/>
-        <Blogs/>
         <Contact />
       </div>
     </div>

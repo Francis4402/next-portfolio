@@ -11,6 +11,7 @@ import Login from "./Auth/Login"
 import { Button } from "@/components/ui/button"
 import { File, LayoutDashboard, LogOut, User } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
+import { toast } from "sonner"
 
 
 
@@ -19,7 +20,7 @@ const Navbar = () => {
 
     const {data: session} = useSession();
 
-    const PDFFileURL = 'https://next-portfolio-delta-ebon.vercel.app/functionalsample.pdf'
+    const PDFFileURL = 'https://next-portfolio-xi-weld.vercel.app/Francis_WebDevCV.pdf'
 
     
     const handeDownload = (url: any) => {
@@ -30,6 +31,10 @@ const Navbar = () => {
         document.body.appendChild(aTag)
         aTag.click()
         aTag.remove();
+    }
+
+    const handleToast = () => {
+        toast.error("Please login to download CV")
     }
     
 
@@ -48,12 +53,11 @@ const Navbar = () => {
                 <div className='flex justify-center items-center text-center md:gap-10 gap-4 capitalize list-none'>
                     <div className="md:flex gap-5 hidden">
                         <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
-                        <Link href={'/blogs'} className="flex items-center gap-2">Blogs</Link>
-                        {session ? (<Button onClick={() => handeDownload(PDFFileURL)} variant={"default"} className="bg-orange-600 text-white"><File /> Download CV</Button>) : ""}
+                        
+                        {session ? (<Button onClick={() => handeDownload(PDFFileURL)} variant={"default"} className="bg-orange-600 text-white"><File /> Download CV</Button>) : <Button onClick={() => handleToast()} variant={"default"} className="bg-orange-600 text-white"><File /> Download CV</Button>}
                     </div>
                     <div className="flex gap-2 md:hidden">
                         <Link href={'/projects'} className="flex items-center gap-2">Projects</Link>
-                        <Link href={'/blog'} className="flex items-center gap-2">Blogs</Link>
                     </div>
                     {
                         session ? (

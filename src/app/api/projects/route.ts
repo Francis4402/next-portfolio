@@ -14,7 +14,7 @@ interface MyJwtPayload extends JwtPayload {
 export async function GET() {
     try {
 
-        const projects = await db.select().from(projectTable)
+        const projects = await db.select().from(projectTable);
 
         return NextResponse.json(projects);
     } catch (error) {

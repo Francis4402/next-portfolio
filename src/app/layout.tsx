@@ -40,7 +40,7 @@ export default async function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Provider session={session}>
-            <Toaster position="top-right" />
+            <Toaster position="top-right" duration={2000} />
             <ToastHandler/>
             {children}
           </Provider>

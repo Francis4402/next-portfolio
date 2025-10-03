@@ -1,13 +1,13 @@
 export const publicRoutes = [
-    "/", "/projects", "/blogs", "/contact",
+    "/", "/projects", "/blogs", "/contact",  "/projects/:id", "/blogs/:id", "/:id"
 ];
 
 export const adminRoutes = [
-    "/dashboard", "/", "/:id", "/projects/:id", "/blogs/:id", "/dashboard/projects", "/dashboard/blogs", "/dashboard/messages"
+    "/dashboard", "/", "/dashboard/projects", "/dashboard/blogs", "/dashboard/messages", "/projects/:id", "/blogs/:id", "/:id"
 ];
 
 export const userRoutes = [
-    "/", "/:id", "/projects/:id", "/blogs/:id",
+    "/", "/projects/:id", "/blogs/:id", "/:id"
 ];
 
 
