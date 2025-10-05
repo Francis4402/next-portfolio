@@ -70,7 +70,6 @@ export async function POST(req: NextRequest) {
 
         const body = await req.json();
 
-             
 
         const newMessages = await db.insert(messageTable).values({
             name: body.name,
@@ -102,6 +101,6 @@ export async function POST(req: NextRequest) {
         return NextResponse.json(newMessages, { status: 201 });
     } catch (error) {
         console.log(error);
-        return NextResponse.json({ error: 'Failed to create project' }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
     }
 }

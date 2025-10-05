@@ -77,7 +77,12 @@ const About = () => {
       </div>
 
       <p className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px] texts'>
-        I&#39;m a skilled Full Stack Web Developer and expertise in frameworks like Laravel, MySql, React, Node.js, Express, Next.js and MongoDB. I&#39;m a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let&#39;s work together to bring your ideas to life!
+        I&#39;m a skilled Full Stack Web Developer and expertise in frameworks like Next Js, Typescript, Drizzle-Orm, Postgresql, React, Node.js, Express, MongoDB. I&#39;m a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let&#39;s work together to bring your ideas to life!
+      </p>
+
+      <p className="mt-4 text-primary text-[17px] max-w-3xl leading-[30px] texts flex flex-col gap-4">
+        <span className="text-xl underline underline-offset-10">Worked :</span> 2 Years Of Experience in croatian Company ( SoftTech Engineering ) (remote)<br/>
+        <span className="text-xl underline underline-offset-10">Currently Working :</span> 1 Year Of Experience in Bangladesh Company ( Stroyed Studio ) (remote)
       </p>
 
       <div className="mt-20 flex flex-wrap gap-10 justify-center">
