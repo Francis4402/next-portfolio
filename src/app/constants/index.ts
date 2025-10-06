@@ -1,7 +1,6 @@
 import { css, drizzleorm, figma, flutter, git, html, javascript, laravel, mongodb, nextjs, nodejs, postgresql, reactjs, redux, tailwind, typescript, zustand } from "../assets";
 
 
-
 const experiences = [
     {
         title: "React.js",

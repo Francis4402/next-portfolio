@@ -61,7 +61,8 @@ const ProjectCardhome = ({project}: {project: TProject}) => {
       
       <CardFooter className="flex justify-between pt-0">
         <div className="flex gap-2">
-          <Button 
+          {
+            project.livelink && <Button 
             variant="outline" 
             size="sm" 
             onClick={() => window.open(project.livelink, "_blank")}
@@ -70,7 +71,9 @@ const ProjectCardhome = ({project}: {project: TProject}) => {
             <ExternalLink className="h-3 w-3" />
             Live
           </Button>
-          <Button 
+          }
+          {
+            project.githublink && <Button 
             variant="outline" 
             size="sm" 
             onClick={() => window.open(project.githublink, "_blank")}
@@ -79,6 +82,7 @@ const ProjectCardhome = ({project}: {project: TProject}) => {
             <FaGithub className="h-3 w-3" />
             Github
           </Button>
+          }
         </div>
         
         <Button 
