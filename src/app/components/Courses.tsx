@@ -12,7 +12,7 @@ const Courses = () => {
             Courses
         </h2>
 
-        <div className='grid grid-cols-2 gap-5 mt-10'>
+        <div className='grid md:grid-cols-2 gap-5 mt-10'>
             <Image src={"/cirtificates/ostadcirtificate.png"} alt='i' width={1024} height={1024} />
             <Image src={"/cirtificates/programmingherocirtificate.png"} alt='i' width={1024} height={1024} />
         </div>
