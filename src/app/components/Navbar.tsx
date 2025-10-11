@@ -20,7 +20,7 @@ const Navbar = () => {
 
     const {data: session} = useSession();
 
-    const PDFFileURL = 'https://next-portfolio-xi-weld.vercel.app/Francis_WebDevCV.pdf'
+    const PDFFileURL = 'https://next-portfolio-xi-weld.vercel.app/WebDevelopmentCV(Francis).pdf'
 
     
     const handeDownload = (url: any) => {
