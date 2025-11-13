@@ -82,7 +82,7 @@ const About = () => {
 
       <p className="mt-4 text-primary text-[17px] max-w-3xl leading-[30px] texts flex flex-col gap-4">
         <span className="text-xl underline underline-offset-10">Worked :</span> 2 Years Of Experience in croatian Company ( SoftTech Engineering ) (remote)<br/>
-        <span className="text-xl underline underline-offset-10">Currently Working :</span> 1 Year Of Experience in Bangladesh Company ( Stroyed Studio ) (remote)
+        <span className="text-xl underline underline-offset-10">Currently Working :</span> 4 Year Of Experience in Bangladesh Company ( Stroyed Studio ) (remote)
       </p>
 
       <div className="mt-20 flex flex-wrap gap-10 justify-center">

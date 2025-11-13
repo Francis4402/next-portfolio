@@ -7,17 +7,17 @@ import EducationCard from './EducationCard'
 import { MdOutlineCastForEducation } from "react-icons/md";
 
 const educations = [
-    // {
-    //   title: "Bachelor of Science in Computer Science",
-    //   date: "2024",
-    //   icon: <MdOutlineCastForEducation />,
-    //   iconBg: "#383E56",
-    //   points: [
-    //     "Bachelor of Science in Computer Science",
-    //     "Major: Computer Science",
-    //     "GPA: 3.40",
-    //   ]
-    // },
+    {
+      title: "Bachelor of Science in Computer Science",
+      date: "2023",
+      icon: <MdOutlineCastForEducation />,
+      iconBg: "#383E56",
+      points: [
+        "Bachelor of Science in Computer Science",
+        "Major: Computer Science",
+        "GPA: 3.40",
+      ]
+    },
     {
       title: "Deploma in Computer Science",
       date: "2019",
